@@ -1,0 +1,3 @@
+# Oznacz plik gradle-wrapper.jar jako plik binarny, aby Git go nie uszkodził podczas normalizacji znaków końca linii (newline CRLF/LF)
+gradle/wrapper/gradle-wrapper.jar binary
+*.jar binary
