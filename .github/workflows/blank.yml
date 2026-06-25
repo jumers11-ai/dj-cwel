@@ -1,4 +1,0 @@
-git update-index --chmod=+x gradlew
-git add gradlew
-git commit -m "fix executable"
-git push
