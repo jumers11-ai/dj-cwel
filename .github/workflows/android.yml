@@ -25,6 +25,7 @@ jobs:
       uses: gradle/actions/setup-gradle@v4
       with:
         gradle-version: '9.3.1'
+        cache-disabled: true
 
     - name: Decode Keystore and Setup Env
       run: |
@@ -37,8 +38,8 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Build Debug APK
-      run: ./gradlew assembleDebug
+    - name: Build Debug APK (Clean, Fresh Download & No Cache)
+      run: ./gradlew clean assembleDebug --refresh-dependencies --no-build-cache
 
     - name: Upload Debug APK
       uses: actions/upload-artifact@v4
