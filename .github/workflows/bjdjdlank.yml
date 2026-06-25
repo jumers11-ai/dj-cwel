@@ -1,5 +1,0 @@
-- name: Deep clean Gradle
-  run: |
-    rm -rf ~/.gradle
-    rm -rf .gradle
-    find . -type d -name build -exec rm -rf {} +
