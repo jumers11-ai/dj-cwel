@@ -1,0 +1,6 @@
+{
+  "name": "DJ AI AutoMixer",
+  "description": "Profesjonalny DJ AI z automatycznym miksowaniem po BPM, kluczu i tempie, dwoma deckami, efektami, hot cues i playlistami.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
