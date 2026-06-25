@@ -6,3 +6,7 @@ plugins {
   alias(libs.plugins.roborazzi) apply false
   alias(libs.plugins.secrets) apply false
 }
+
+tasks.register<Delete>("clean") {
+  delete(rootProject.layout.buildDirectory)
+}
