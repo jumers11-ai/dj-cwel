@@ -1,40 +1,8 @@
-name: Fresh Gradle Build
-
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-
-jobs:
-  fresh-build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
-
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '21'
-
-      - name: Remove Gradle caches
-        run: |
-          rm -rf ~/.gradle/caches
-          rm -rf ~/.gradle/wrapper
-          rm -rf ~/.gradle/daemon
-          rm -rf ~/.gradle/native
-          rm -rf ~/.gradle/notifications
-
-      - name: Verify cache removal
-        run: |
-          ls -la ~/.gradle || true
-
-      - name: Make Gradle executable
-        run: chmod +x ./gradlew
-
+- name: Deep clean Gradle
+  run: |
+    rm -rf ~/.gradle
+    rm -rf .gradle
+    find . -type d -name build -exec rm -rf {} +
       - name: Fresh build
         run: |
           ./gradlew clean build --refresh-dependencies --no-build-cache# This is a basic workflow to help you get started with Actions
