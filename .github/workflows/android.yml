@@ -28,6 +28,14 @@ jobs:
         cache-disabled: true
         validate-wrappers: false
 
+    - name: Setup Android SDK and Accept Licenses
+      uses: android-actions/setup-android@v4
+
+    - name: Decode Keystore and Setup Env
+      run: |
+        base64 -d debug.keystore.base64 > debug.keystore
+        cp .env.example .env
+
     - name: Regenerate Gradle Wrapper
       run: gradle wrapper
 
